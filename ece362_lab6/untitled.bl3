@@ -1,0 +1,81 @@
+#$ TOOL ispLEVER Classic 1.7.00.05.28.13
+#$ DATE Tue Oct 06 19:24:23 2015
+#$ MODULE lab6_prelab
+#$ JEDECFILE lab6_prelab
+#$ PINS 18 I0:2 I1:3 I2:4 I3:5 I4:6 I5:7 CLOCK:1 flagclear:8 tens:14 dpoint:15 a:16 b:17 c:18 d:19 e:20 f:21 g:22 irqbar:23
+#$ NODES 1 IRQ+
+
+.model lab6_prelab
+.inputs I0.BLIF I1.BLIF CLOCK.BLIF flagclear.BLIF IRQ.BLIF I2.BLIF I3.BLIF I4.BLIF \
+I5.BLIF
+.outputs tens dpoint irqbar IRQ.C IRQ.AR IRQ.D a b c d e f g
+.names I0.BLIF tens
+0 1
+1 0
+.names I1.BLIF dpoint
+0 1
+1 0
+.names IRQ.BLIF irqbar
+0 1
+1 0
+.names IRQ.D
+ 1
+.names I5.BLIF I4.BLIF I3.BLIF I2.BLIF a
+0100 1
+0001 1
+-0-0 0
+-1-1 0
+--1- 0
+1--- 0
+.names I5.BLIF I4.BLIF I3.BLIF I2.BLIF b
+0110 1
+0101 1
+--00 0
+--11 0
+-0-- 0
+1--- 0
+.names I5.BLIF I4.BLIF I3.BLIF I2.BLIF c
+0010 1
+--0- 0
+-1-- 0
+1--- 0
+---1 0
+.names I5.BLIF I4.BLIF I3.BLIF I2.BLIF d
+0100 1
+0001 1
+0111 1
+-101 0
+-01- 0
+--10 0
+-0-0 0
+1--- 0
+.names I5.BLIF I4.BLIF I3.BLIF I2.BLIF e
+010- 1
+-001 1
+0--1 1
+1-1- 0
+11-- 0
+-0-0 0
+--10 0
+.names I5.BLIF I4.BLIF I3.BLIF I2.BLIF f
+001- 1
+0-11 1
+00-1 1
+-10- 0
+1--- 0
+--00 0
+-1-0 0
+.names I5.BLIF I4.BLIF I3.BLIF I2.BLIF g
+0111 1
+000- 1
+-1-0 0
+-10- 0
+-01- 0
+1--- 0
+.names CLOCK.BLIF IRQ.C
+1 1
+0 0
+.names flagclear.BLIF IRQ.AR
+1 1
+0 0
+.end

@@ -1,0 +1,40 @@
+MODULE lab6_prelab
+
+
+DECLARATIONS
+I0..I5 pin 2,3,4,5,6,7;
+
+CLOCK pin 1;
+
+flagclear pin 8;
+
+!tens, !dpoint, !a, !b, !c, !d, !e, !f, !g pin 14..22 istype 'com';
+IRQ node istype 'reg_d,buffer';
+!irqbar pin 23 istype 'com';
+
+
+EQUATIONS
+
+tens = I0;
+dpoint = I1;
+IRQ.clk = CLOCK;
+IRQ.ar = flagclear;
+IRQ.d = 1;
+irqbar = IRQ;
+
+TRUTH_TABLE([I5,I4,I3,I2]->[a,b,c,d,e,f,g])
+[0,0,0,0] -> [1,1,1,1,1,1,0];
+[0,0,0,1] -> [0,1,1,0,0,0,0];
+[0,0,1,0] -> [1,1,0,1,1,0,1];
+[0,0,1,1] -> [1,1,1,1,0,0,1];
+[0,1,0,0] -> [0,1,1,0,0,1,1];
+[0,1,0,1] -> [1,0,1,1,0,1,1];
+[0,1,1,0] -> [1,0,1,1,1,1,1];
+[0,1,1,1] -> [1,1,1,0,0,0,0];
+[1,0,0,0] -> [1,1,1,1,1,1,1];
+[1,0,0,1] -> [1,1,1,1,0,1,1];
+
+
+
+END 
+

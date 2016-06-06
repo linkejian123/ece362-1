@@ -1,0 +1,191 @@
+
+
+                                                                      Page 1
+ispLEVER Classic 1.7.00.05.28.13  -  Device Utilization Chart         Tue Oct 06 19:24:25 2015
+
+
+
+--------------------------------------------------------------------------------
+
+Module                   : 'lab6_prelab'
+
+--------------------------------------------------------------------------------
+
+Input files:
+
+    ABEL PLA file        : untitled.tt3
+    Device library       : P22V10G.dev
+
+Output files:
+
+    Report file          : untitled.rpt
+    Programmer load file : untitled.jed
+
+--------------------------------------------------------------------------------
+
+
+                                                                      Page 2
+ispLEVER Classic 1.7.00.05.28.13  -  Device Utilization Chart         Tue Oct 06 19:24:25 2015
+
+P22V10G Programmed Logic:
+--------------------------------------------------------------------------------
+
+
+
+tens     = (  !I0 );
+
+dpoint     = (  !I1 );
+
+irqbar.D   = (1); " ISTYPE 'INVERT'
+irqbar.C   = (  CLOCK );
+irqbar.AR  = (  flagclear );
+
+a     = (  !I2 & !I3 & I4 & !I5 
+         #   I2 & !I3 & !I4 & !I5 );
+
+b     = (  !I2 & I3 & I4 & !I5 
+         #   I2 & !I3 & I4 & !I5 );
+
+c     = (  !I2 & I3 & !I4 & !I5 );
+
+d     = (  I2 & I3 & I4 & !I5 
+         #   !I2 & !I3 & I4 & !I5 
+         #   I2 & !I3 & !I4 & !I5 );
+
+e     = (  I2 & !I3 & !I4 
+         #   I2 & !I5 
+         #   !I3 & I4 & !I5 );
+
+f     = (  I2 & I3 & !I5 
+         #   I2 & !I4 & !I5 
+         #   I3 & !I4 & !I5 );
+
+g     = (  I2 & I3 & I4 & !I5 
+         #   !I3 & !I4 & !I5 );
+
+
+
+                                                                      Page 3
+ispLEVER Classic 1.7.00.05.28.13  -  Device Utilization Chart         Tue Oct 06 19:24:25 2015
+
+P22V10G Chip Diagram:
+--------------------------------------------------------------------------------
+
+
+
+
+                                   P22V10G
+
+                         +---------\       /---------+
+                         |          \     /          |
+                         |           -----           |
+                   CLOCK |  1                    24  | Vcc                     
+                         |                           |
+                      I0 |  2                    23  | !irqbar                 
+                         |                           |
+                      I1 |  3                    22  | g                       
+                         |                           |
+                      I2 |  4                    21  | f                       
+                         |                           |
+                      I3 |  5                    20  | e                       
+                         |                           |
+                      I4 |  6                    19  | d                       
+                         |                           |
+                      I5 |  7                    18  | c                       
+                         |                           |
+               flagclear |  8                    17  | b                       
+                         |                           |
+                         |  9                    16  | a                       
+                         |                           |
+                         | 10                    15  | dpoint                  
+                         |                           |
+                         | 11                    14  | tens                    
+                         |                           |
+                     GND | 12                    13  |                         
+                         |                           |
+                         |                           |
+                         `---------------------------'
+
+                        SIGNATURE: N/A
+
+
+                                                                      Page 4
+ispLEVER Classic 1.7.00.05.28.13  -  Device Utilization Chart         Tue Oct 06 19:24:25 2015
+
+P22V10G Resource Allocations:
+--------------------------------------------------------------------------------
+
+
+
+        Device        | Resource  |   Design    |
+       Resources      | Available | Requirement | Unused
+======================|===========|=============|==============
+                      |           |             |
+Input Pins:           |           |             |
+                      |           |             |
+          Input:      |     12    |      8      |    4 ( 33 %)
+                      |           |             |
+Output Pins:          |           |             |
+                      |           |             |
+          In/Out:     |     10    |     10      |    0 (  0 %)
+          Output:     |      -    |      -      |    -
+                      |           |             |
+Buried Nodes:         |           |             |
+                      |           |             |
+          Input Reg:  |      -    |      -      |    -
+          Pin Reg:    |     10    |      1      |    9 ( 90 %)
+          Buried Reg: |      -    |      -      |    -
+
+
+                                                                      Page 5
+ispLEVER Classic 1.7.00.05.28.13  -  Device Utilization Chart         Tue Oct 06 19:24:25 2015
+
+P22V10G Product Terms Distribution:
+--------------------------------------------------------------------------------
+
+
+
+            Signal                       |    Pin   | Terms | Terms | Terms
+             Name                        | Assigned | Used  |  Max  | Unused
+=========================================|==========|=======|=======|=======
+tens                                     |   14     |   1   |   8   |   7
+dpoint                                   |   15     |   1   |  10   |   9
+irqbar.D                                 |   23     |   1   |   8   |   7
+a                                        |   16     |   2   |  12   |  10
+b                                        |   17     |   2   |  14   |  12
+c                                        |   18     |   1   |  16   |  15
+d                                        |   19     |   3   |  16   |  13
+e                                        |   20     |   3   |  14   |  11
+f                                        |   21     |   3   |  12   |   9
+g                                        |   22     |   2   |  10   |   8
+
+
+     ==== List of Inputs/Feedbacks ====
+
+Signal Name                              | Pin      | Pin Type
+=========================================|==========|=========
+I0                                       |    2     | INPUT
+I1                                       |    3     | INPUT
+CLOCK                                    |    1     | CLK/IN
+flagclear                                |    8     | INPUT
+I2                                       |    4     | INPUT
+I3                                       |    5     | INPUT
+I4                                       |    6     | INPUT
+I5                                       |    7     | INPUT
+
+
+                                                                      Page 6
+ispLEVER Classic 1.7.00.05.28.13  -  Device Utilization Chart         Tue Oct 06 19:24:25 2015
+
+P22V10G Unused Resources:
+--------------------------------------------------------------------------------
+
+
+
+ Pin   |  Pin   |   Product   | Flip-flop
+Number |  Type  |   Terms     |   Type
+=======|========|=============|==========
+    9  |  INPUT |      -      |    -   
+   10  |  INPUT |      -      |    -   
+   11  |  INPUT |      -      |    -   
+   13  |  INPUT |      -      |    -   
